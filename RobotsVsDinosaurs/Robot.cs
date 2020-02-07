@@ -26,7 +26,7 @@ namespace RobotsVsDinosaurs
             powerLevel = 100;
             health = 1000;
             attackModifier = 10;
-            attackPower = attackModifier + powerLevel;
+            attackPower = attackModifier + powerLevel + weaponType.damage;
             canAttack = true;
         }
         public void DisplayRobot()

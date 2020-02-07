@@ -12,8 +12,9 @@ namespace RobotsVsDinosaurs
         public string type; 
         public double health;
         public double energyLevel;
-        public double attackPower;
+        public double attackModifier;
         public bool canAttack;
+        public double attackPower;
 
         public Dinosaur(string type)
         {
@@ -21,8 +22,10 @@ namespace RobotsVsDinosaurs
             this.type = type;
             health = 1000;
             energyLevel = 100;
-            attackPower = 10;
+            attackModifier = 10;
             canAttack = true;
+            attackPower = this.attackModifier + this.energyLevel;
+
         }
         public void DisplayDinosour()
         {
