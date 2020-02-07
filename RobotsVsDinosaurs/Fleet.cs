@@ -27,7 +27,6 @@ namespace RobotsVsDinosaurs
             {
                 robot.DisplayRobot();
             }
-            Console.ReadKey();
         }
 
 

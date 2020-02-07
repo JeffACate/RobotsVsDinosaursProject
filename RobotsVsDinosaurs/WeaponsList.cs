@@ -9,9 +9,9 @@ namespace RobotsVsDinosaurs
     class WeaponsList
     {
         public List<Weapon> weaponsList = new List<Weapon>();
-        public Weapon hammer = new Weapon("hammer", 100);
-        public Weapon tazer = new Weapon("tazer", 150);
-        public Weapon lazer = new Weapon("lazer", 150);
+        public Weapon hammer = new Weapon("hammer", 10);
+        public Weapon tazer = new Weapon("tazer", 15);
+        public Weapon lazer = new Weapon("lazer", 15);
         public WeaponsList()
         {
             this.weaponsList.Add(hammer);

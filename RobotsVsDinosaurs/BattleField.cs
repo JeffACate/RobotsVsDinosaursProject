@@ -17,18 +17,24 @@ namespace RobotsVsDinosaurs
         }
         public void Battle()
         {
-            Console.WriteLine("displaying robots ");
-            DisplayBattlefield();
+            Console.WriteLine("Battle !! ");
+            BattleRound();
+            Console.ReadKey(); 
         }
         public void DisplayBattlefield()
         {
             robotFleet.DisplayRobots();
             dinosaurHerd.DisplayDinosaurs();
-
-            
         }
-        
-        
+
+        public void BattleRound()
+        {
+            for (int i = 0; i <= 2; i++)
+            {
+                robotFleet.robots[i].DisplayRobot();
+                dinosaurHerd.herdDinosaurs[i].DisplayDinosour();
+            }
+        }
 
     }
 }
