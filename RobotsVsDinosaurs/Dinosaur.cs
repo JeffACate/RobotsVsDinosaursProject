@@ -11,24 +11,27 @@ namespace RobotsVsDinosaurs
         //public string name;
         public string type; 
         public double health;
-        public double energy;
+        public double energyLevel;
         public double attackPower;
+        public bool canAttack;
 
         public Dinosaur(string type)
         {
             //this.name = name;
             this.type = type;
-            health = 100;
-            energy = 100;
+            health = 1000;
+            energyLevel = 100;
             attackPower = 10;
+            canAttack = true;
         }
         public void DisplayDinosour()
         {
             Console.WriteLine(/*$"{name}\n" +*/
                               $"{type}\n" +
                               $"{health}\n" +
-                              $"{energy}\n" +
-                              $"{attackPower}\n");
+                              $"{energyLevel}\n" +
+                              $"{attackPower}\n" +
+                              $"{canAttack.ToString()}\n");
         }
         
 
