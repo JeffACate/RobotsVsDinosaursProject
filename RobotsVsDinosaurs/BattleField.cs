@@ -12,7 +12,6 @@ namespace RobotsVsDinosaurs
         public Herd dinosaurHerd;
         List<Robot> robotList;
         List<Dinosaur> dinoList;
-        //public Robot newRobot;
         public BattleField()
         {
             robotFleet = new Fleet();
@@ -32,6 +31,7 @@ namespace RobotsVsDinosaurs
                 
             }while (dinoList.Count > 0 && robotList.Count > 0);
             DisplayBattlefield();
+            Console.WriteLine("Robots killed all the dinosaurs\nRobots win the Battle!!");
             Console.ReadKey();
         }
         public void DisplayBattlefield()
@@ -39,11 +39,7 @@ namespace RobotsVsDinosaurs
             DisplayRobots();
             DisplayDinos();
         }
-
-        public void BattleRound()
-        {
-
-        }
+        
         public void Attack()
         {
             //dinos attack each robot
@@ -51,6 +47,7 @@ namespace RobotsVsDinosaurs
             {
                 if(i < robotList.Count)
                 {
+                    dinoList[i].ChoseAttack();
                     robotList[i].health -= dinoList[i].attackPower;
                 }
             }
@@ -69,6 +66,7 @@ namespace RobotsVsDinosaurs
             {
                 if(i < dinoList.Count)
                 {
+                    //
                     dinoList[i].health -= robotList[i].attackPower;
                 }
             }

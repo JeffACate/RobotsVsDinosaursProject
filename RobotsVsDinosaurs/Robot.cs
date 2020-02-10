@@ -41,7 +41,6 @@ namespace RobotsVsDinosaurs
 
         Weapon ChoseWeapon()
         {
-            Weapon selectedWeapon = armory.lazer;
             Console.Write($"Chose a weapon(Hammer | Tazer | Lazer |) for {name}: ");
             string choice = Console.ReadLine().ToLower();
             while (choice != "hammer" && choice != "tazer" && choice != "lazer")
@@ -52,16 +51,14 @@ namespace RobotsVsDinosaurs
             switch (choice)
             {
                 case "hammer":
-                    selectedWeapon = armory.hammer;
-                    break;
+                    return armory.hammer;
                 case "tazer":
-                    selectedWeapon = armory.tazer;
-                    break;
+                    return armory.tazer;
                 case "lazer":
-                    selectedWeapon = armory.lazer;
-                    break;
+                    return armory.lazer;
+                default:
+                    return armory.lazer;
             }
-            return selectedWeapon;
         }
 
 
