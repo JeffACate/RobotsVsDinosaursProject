@@ -8,21 +8,20 @@ namespace RobotsVsDinosaurs
 {
     class Fleet
     {
-        public List<Robot> robots = new List<Robot>();
-        public WeaponsList fleetWeapons = new WeaponsList();
+        public Robot c3P0;
+        public Robot r2;
+        public Robot droideka;
+
         public Fleet()
         {
-            Robot c3P0= new Robot("C3PO", fleetWeapons.weaponsList[0]);
-            Robot r2 = new Robot("R2D2", fleetWeapons.weaponsList[1]);
-            Robot droideka = new Robot("Droideka", fleetWeapons.weaponsList[2]);
-            //The fleet has a list of weapons
-            robots.Add(c3P0);
-            robots.Add(r2);
-            robots.Add(droideka);
+            c3P0= new Robot("C3-PO", new Weapon("hammer", 10));
+            r2 = new Robot("R2-D2", new Weapon("tazer", 15));
+            droideka = new Robot("Droideka", new Weapon("lazer", 15));
 
         }
-        public void DisplayRobots()
+        public void DisplayRobots(List<Robot> robots)
         {
+
             foreach (Robot robot in robots)
             {
                 robot.DisplayRobot();

@@ -12,31 +12,31 @@ namespace RobotsVsDinosaurs
         public string name;
         public double health;           // affects power level
         public double powerLevel;       //affects if "speed" 
-        public Weapon weaponType;       // To make class of weapons.
+        public Weapon weapon;       // To make class of weapons.
         public double attackPower;
         public double attackModifier;
 
         // calculated by weapon,health, weapon type
         public bool canAttack;
 
-        public Robot(string name, Weapon weaponType)
+        public Robot(string name, Weapon weapon)
         {
             this.name = name;
-            this.weaponType = weaponType;
+            this.weapon = weapon;
             powerLevel = 100;
             health = 1000;
             attackModifier = 10;
-            attackPower = attackModifier + powerLevel + weaponType.damage;
+            attackPower = attackModifier + powerLevel + weapon.damage;
             canAttack = true;
         }
         public void DisplayRobot()
         {
-            Console.WriteLine($"{name}\n" +
-                              $"{health}\n" +
-                              $"{powerLevel}\n" +
-                              $"{weaponType.type}\n" +
-                              $"{attackPower}\n" +
-                              $"{canAttack.ToString()}");
+            string space = "";
+            if (name != "Droideka")
+            {
+                space = "   ";
+            }
+            Console.WriteLine($"|{space}{name}  |  {health}   |  {powerLevel}    |   {canAttack}      |");
         }
 
 

@@ -27,16 +27,17 @@ namespace RobotsVsDinosaurs
             attackPower = this.attackModifier + this.energyLevel;
 
         }
-        public void DisplayDinosour()
+        public void DisplayDinosaur()
         {
-            Console.WriteLine(/*$"{name}\n" +*/
-                              $"{type}\n" +
-                              $"{health}\n" +
-                              $"{energyLevel}\n" +
-                              $"{attackPower}\n" +
-                              $"{canAttack.ToString()}\n");
+            string space = "      ";
+            if (type != "T-rex")
+            {
+                space = "";
+            }
+            Console.WriteLine($"|{space}{type}  |  {health}   |  {energyLevel}    |   {canAttack}      |");
+            
         }
-        
+
 
     }
 }

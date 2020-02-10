@@ -8,33 +8,84 @@ namespace RobotsVsDinosaurs
 {
     class BattleField
     {
-        public Fleet robotFleet = new Fleet();
-        public Herd dinosaurHerd = new Herd();
+        public Fleet robotFleet;
+        public Herd dinosaurHerd;
         //public Robot newRobot;
         public BattleField()
         {
-
+            robotFleet = new Fleet();
+            dinosaurHerd = new Herd();
         }
         public void Battle()
         {
+
             Console.WriteLine("Battle !! ");
-            BattleRound();
-            Console.ReadKey(); 
+            DisplayBattlefield();
+            Console.ReadKey();
         }
         public void DisplayBattlefield()
         {
-            robotFleet.DisplayRobots();
-            dinosaurHerd.DisplayDinosaurs();
+            DisplayRobots();
+            DisplayDinos();
+            Attack();
         }
 
         public void BattleRound()
         {
-            for (int i = 0; i <= 2; i++)
-            {
-                robotFleet.robots[i].DisplayRobot();
-                dinosaurHerd.herdDinosaurs[i].DisplayDinosour();
-            }
-        }
 
+        }
+        public void Attack()
+        {
+        }
+        public void DisplayRobots()
+        {
+
+            List<Robot> robotList = new List<Robot> { robotFleet.c3P0, robotFleet.r2, robotFleet.droideka };
+            int i = 0;
+            Console.WriteLine("+--------------------------------------------+");
+            Console.WriteLine("|   Robot  |  Health | Energy  |  Can Attack |");
+            Console.WriteLine("|--------------------------------------------|");
+            foreach (Robot bot in robotList)
+            {
+                bot.DisplayRobot();
+                if (i == 2)
+                {
+                    Console.WriteLine("+--------------------------------------------+");
+                }
+                else
+                {
+
+                    Console.WriteLine("|--------------------------------------------|");
+                    i++;
+                }
+            }
+
+            Console.WriteLine();
+        }
+        public void DisplayDinos()
+        {
+
+            List<Dinosaur> dinoList = new List<Dinosaur> { dinosaurHerd.tRex, dinosaurHerd.pterodactyl, dinosaurHerd.stegosaurus };
+            int i = 0;
+            Console.WriteLine("+-----------------------------------------------+");
+            Console.WriteLine("|   Dinosaur  |  Health | Energy  |  Can Attack |");
+            Console.WriteLine("|-----------------------------------------------|");
+            foreach (Dinosaur dino in dinoList)
+            {
+                dino.DisplayDinosaur();
+                if (i == 2)
+                {
+                    Console.WriteLine("+-----------------------------------------------+");
+                }
+                else
+                {
+
+                    Console.WriteLine("|-----------------------------------------------|");
+                    i++;
+                }
+            }
+
+            Console.WriteLine();
+        }
     }
 }

@@ -8,24 +8,22 @@ namespace RobotsVsDinosaurs
 {
     class Herd
     {
-        public List<Dinosaur> herdDinosaurs = new List<Dinosaur>();
-        
+        public Dinosaur tRex;
+        public Dinosaur pterodactyl;
+        public Dinosaur stegosaurus;
         public Herd()
         {
-            Dinosaur tRex = new Dinosaur("T-rex");
-            Dinosaur pterodactyl = new Dinosaur("Pterodactyl");
-            Dinosaur stegosaurus = new Dinosaur("stegosaurus");
-            herdDinosaurs.Add(tRex);
-            herdDinosaurs.Add(pterodactyl);
-            herdDinosaurs.Add(stegosaurus);
+            tRex = new Dinosaur("T-rex");
+            pterodactyl = new Dinosaur("Pterodactyl");
+            stegosaurus = new Dinosaur("stegosaurus");
 
         }
 
-        public void DisplayDinosaurs()
+        public void DisplayDinosaurs(List<Dinosaur> dinosaurs)
         {
-            foreach (Dinosaur dinosour in herdDinosaurs)
+            foreach (Dinosaur dinosaur in dinosaurs)
             {
-                dinosour.DisplayDinosour();
+                dinosaur.DisplayDinosaur();
             }
         }
     }

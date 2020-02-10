@@ -8,15 +8,14 @@ namespace RobotsVsDinosaurs
 {
     class WeaponsList
     {
-        public List<Weapon> weaponsList = new List<Weapon>();
-        public Weapon hammer = new Weapon("hammer", 10);
-        public Weapon tazer = new Weapon("tazer", 15);
-        public Weapon lazer = new Weapon("lazer", 15);
+        public Weapon hammer;
+        public Weapon tazer;
+        public Weapon lazer; 
         public WeaponsList()
         {
-            this.weaponsList.Add(hammer);
-            this.weaponsList.Add(tazer);
-            this.weaponsList.Add(lazer);
+            hammer = new Weapon("hammer", 10);
+            tazer = new Weapon("tazer", 15);
+            lazer = new Weapon("lazer", 15);
         }
     }
 }
