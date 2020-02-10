@@ -15,16 +15,16 @@ namespace RobotsVsDinosaurs
         public Weapon weapon;       // To make class of weapons.
         public double attackPower;
         public double attackModifier;
-
-        // calculated by weapon,health, weapon type
         public bool canAttack;
+        public WeaponsList armory;
 
-        public Robot(string name, Weapon weapon)
+        public Robot(string name)
         {
             this.name = name;
-            this.weapon = weapon;
             powerLevel = 100;
             health = 1000;
+            armory = new WeaponsList();
+            weapon = ChoseWeapon();
             attackModifier = 10;
             attackPower = attackModifier + powerLevel + weapon.damage;
             canAttack = true;
@@ -37,6 +37,31 @@ namespace RobotsVsDinosaurs
                 space = "   ";
             }
             Console.WriteLine($"|{space}{name}  |  {health}   |  {powerLevel}    |   {canAttack}      |");
+        }
+
+        Weapon ChoseWeapon()
+        {
+            Weapon selectedWeapon = armory.lazer;
+            Console.Write($"Chose a weapon(Hammer | Tazer | Lazer |) for {name}: ");
+            string choice = Console.ReadLine().ToLower();
+            while (choice != "hammer" && choice != "tazer" && choice != "lazer")
+            {
+                Console.WriteLine("Invaid weapon selection!!");
+                choice = Console.ReadLine().ToLower();
+            }
+            switch (choice)
+            {
+                case "hammer":
+                    selectedWeapon = armory.hammer;
+                    break;
+                case "tazer":
+                    selectedWeapon = armory.tazer;
+                    break;
+                case "lazer":
+                    selectedWeapon = armory.lazer;
+                    break;
+            }
+            return selectedWeapon;
         }
 
 

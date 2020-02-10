@@ -14,9 +14,13 @@ namespace RobotsVsDinosaurs
 
         public Fleet()
         {
-            c3P0= new Robot("C3-PO", new Weapon("hammer", 10));
-            r2 = new Robot("R2-D2", new Weapon("tazer", 15));
-            droideka = new Robot("Droideka", new Weapon("lazer", 15));
+            c3P0= new Robot("C3-PO");
+            Console.WriteLine($"Robot: {c3P0.name} chose a {c3P0.weapon.type} and has attack power of {c3P0.attackPower}");
+            r2 = new Robot("R2-D2");
+            Console.WriteLine($"Robot: {r2.name} chose a {r2.weapon.type} and has attack power of {r2.attackPower}");
+            droideka = new Robot("Droideka");
+            Console.WriteLine($"Robot: {droideka.name} chose a {droideka.weapon.type} and has attack power of {droideka.attackPower}");
+            Console.ReadLine();
 
         }
         public void DisplayRobots(List<Robot> robots)

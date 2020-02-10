@@ -10,16 +10,27 @@ namespace RobotsVsDinosaurs
     {
         public Fleet robotFleet;
         public Herd dinosaurHerd;
+        List<Robot> robotList;
+        List<Dinosaur> dinoList;
         //public Robot newRobot;
         public BattleField()
         {
             robotFleet = new Fleet();
             dinosaurHerd = new Herd();
+            robotList = new List<Robot> { robotFleet.c3P0, robotFleet.r2, robotFleet.droideka };
+            dinoList = new List<Dinosaur> { dinosaurHerd.tRex, dinosaurHerd.pterodactyl, dinosaurHerd.stegosaurus };
         }
         public void Battle()
         {
-
-            Console.WriteLine("Battle !! ");
+            int round = 0;
+            do
+            {
+                round++;
+                Console.WriteLine($"Round {round} Begin!! Battle !! ");
+                DisplayBattlefield();
+                Attack();
+                
+            }while (dinoList.Count > 0 && robotList.Count > 0);
             DisplayBattlefield();
             Console.ReadKey();
         }
@@ -27,7 +38,6 @@ namespace RobotsVsDinosaurs
         {
             DisplayRobots();
             DisplayDinos();
-            Attack();
         }
 
         public void BattleRound()
@@ -36,11 +46,47 @@ namespace RobotsVsDinosaurs
         }
         public void Attack()
         {
+            //dinos attack each robot
+            for (int i = 0; i < dinoList.Count; i++)
+            {
+                if(i < robotList.Count)
+                {
+                    robotList[i].health -= dinoList[i].attackPower;
+                }
+            }
+            //update robot list
+            for (int i = 0; i < robotList.Count; i++)
+            {
+                if (robotList[i].health <= 0)
+                {
+                    robotList.Remove(robotList[i]);
+                    i--;
+                }
+                    
+            }
+            //robots attack each dino
+            for (int i = 0; i < robotList.Count; i++)
+            {
+                if(i < dinoList.Count)
+                {
+                    dinoList[i].health -= robotList[i].attackPower;
+                }
+            }
+            // update dino
+            for (int i = 0; i < dinoList.Count; i++)
+            {
+                if (dinoList[i].health <= 0)
+                {
+                    dinoList.Remove(dinoList[i]);
+                    i--;
+                }
+                
+            }
+
         }
         public void DisplayRobots()
         {
 
-            List<Robot> robotList = new List<Robot> { robotFleet.c3P0, robotFleet.r2, robotFleet.droideka };
             int i = 0;
             Console.WriteLine("+--------------------------------------------+");
             Console.WriteLine("|   Robot  |  Health | Energy  |  Can Attack |");
@@ -64,8 +110,6 @@ namespace RobotsVsDinosaurs
         }
         public void DisplayDinos()
         {
-
-            List<Dinosaur> dinoList = new List<Dinosaur> { dinosaurHerd.tRex, dinosaurHerd.pterodactyl, dinosaurHerd.stegosaurus };
             int i = 0;
             Console.WriteLine("+-----------------------------------------------+");
             Console.WriteLine("|   Dinosaur  |  Health | Energy  |  Can Attack |");
